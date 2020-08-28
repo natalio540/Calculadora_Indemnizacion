@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>descuentos</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div class="container text-center" id="app">
+        <h1 class="my-3">indemnizacion</h1>
+        <div class="row">
+            <div class="col-md my-5">
+                <!-- SUELDO -->
+                <div class="input-group  mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">Mejor Sueldo Bruto </span>
+                    </div> 
+                    
+                    <input type="text" id="sueldo" v-model.number="sueldo" class="form-control"  placeholder=" $ 1000"  aria-describedby="basic-addon1">
+                </div>
+                <!-- VACACIONES -->
+                <div class="input-group  mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">Dias de Vacaciones</span>
+                    </div>
+                    <input type="text" class="form-control"  v-model.number="dVaca" placeholder="14 dias"  aria-describedby="basic-addon1">
+                </div>
+                 <!-- preaviso -->
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">Pre Aviso</span>
+                    </div>
+                    <select name="" id="" v-model="pAviso">
+                        <option value="1"> con preaviso</option>
+                        <option value="2"> sin preaviso</option>
+                    </select>
+                </div>
+                 <!-- causa de extincion de contraño -->
+                 <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">Causa de Extincion de Contrato</span>
+                    </div>
+                    <select name="" id="" v-model="causaDespido">
+                        <option selected>elegir...</option>
+                        <option value="1">despido sin causa</option>
+                        <option value="2">despido con causa</option>
+                        <option value="3">renuncia</option>
+                    </select>
+                </div>
+                <!-- calendarios -->
+                <div class="row">
+                    <div class="col">
+                        <h4 class="text-muted">Fecha de Inicio</h4>
+                        <input type="date" id="fecha1" v-model="fInicio">
+                    
+                    </div>
+                    <div class="col">
+                        <h4 class="text-muted">Fecha de Finalizacion</h4>
+                        <input type="date" id="fecha2"  v-model="fFin">
+                    
+                    </div>    
+                </div>
+                <button id="calcular" @click="calcular()" class="btn btn-success btn-lg mt-3">calcular</button>
+            </div>
+
+            <div class="col-md mt-5">
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">antiguedad</th>
+                        <th scope="col">preaviso</th>
+                        <th scope="col">dias trabajados del mes</th>
+                        <th scope="col">SAC proporcional</th>
+                        <th scope="col">vacaciones no gozadas</th>
+                        <th scope="col">TOTAL</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td > {{antiguedad}}</td>
+                        <td >{{preaviso}}</td>
+                        <td >{{diasT}}</td>
+                        <td >{{sac}}</td>
+                        <td >{{vacas}}</td>
+                        <td class="text-primary">{{resultado}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                <!-- <div class="mt-5 ">
+                    <button class="btn btn-warning">calculadora de porcentajes</button>
+                    <button class="btn btn-warning">calculadora de IVA</button>
+                </div>   -->    
+            </div>
+        </div>
+    </div>
+    <script src="app.js"></script> 
+</body>
+</html>
